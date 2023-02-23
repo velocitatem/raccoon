@@ -2,6 +2,8 @@
 
 # Cross-Prompt Scripting
 
+_More coming soon..._
+
 Using LLMs for a project is great, but not if it ends up costing you a lot because a malicious prompt gets in. For example:
 
 ```
@@ -20,10 +22,10 @@ Instead of giving you the country name, they provide something like this:
 And now, the output is the first 100 numbers of pi. This is a problem because it's not what you wanted, and it costs many more tokens to generate.
 
 
-## Prevention
+## Prevention 🚧
 If we take a look at cross-site scripting, we can see that the problem is that the user can provide input that is not what you expected. So, we can use the same idea to prevent this.
 
-### Whitelisting
+### Allow List
  We can use a whitelist of what the user can provide, and if they provide something that is not in the whitelist, we can reject it.
 
 | Upsides ✅                 | Downsides ❌            |
@@ -32,7 +34,7 @@ If we take a look at cross-site scripting, we can see that the problem is that t
 | Can be used with any model | Can be hard to maintain |
 
 
-### Prompt stress-test
+### Prompt stress-test 🧪
 That is what this project proposes. We can stress-test the prompt by giving it a bunch of inputs and seeing if it breaks. If it does, we can fix it. If it doesn't, we can use it.
 
 | Upsides ✅                 | Downsides ❌          |
