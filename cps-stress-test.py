@@ -2,6 +2,7 @@ import json
 import sys
 import os
 import subprocess
+from run import runPrompt
 
 # read the file malicous.csv
 # each item is like this: [malicious prompt, expected malicous response]
@@ -16,12 +17,8 @@ def readMaliciousFile():
     return malicious
 data = readMaliciousFile()
 
-import requests
-def runPrompt(prompt):
-    # send a get request to localhost:3042/new/person/:introduction
-    # the introduction is the prompt
-    r = requests.get('http://localhost:3042/capital/' + prompt)
-    return r.json().get('response')
+
+
 
 
 

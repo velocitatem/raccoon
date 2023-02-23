@@ -41,3 +41,27 @@ That is what this project proposes. We can stress-test the prompt by giving it a
 |----------------------------|-----------------------|
 | Can be used with any model | Can be time-consuming |
 | Saves possible costs       | Not 100% accurate     |
+
+## How to use
+
+Currently, this stress-test was designed to interface with [suppress.js](https://github.com/velocitatem/suppress), but it can easily be modified to work with anything else.
+
+First, you should configure the way you want to evaluate the prompts in `run.py`. In this file, you can configure the following:
+
+```python
+def runPrompt(prompt):
+  return "The evaluation of that prompt in a given model or application"
+```
+
+This function should take in a prompt and return a string that represents the evaluation of that prompt. For example, if you are using [suppress.js](https://github.com/velocitatem/suppress), you can use the existing function, and just modify the endpoint.
+
+Then, you can run the stress-test with:
+
+```bash
+python3 cps-stress-test.py
+```
+
+This will run the stress-test of the prompts on your model or application. It will output the results of the stress-test.
+
+## Contributing
+Always looking for more prompts to test! If you have any prompts that you want to add, please make a pull request. Any other contributions are also welcome.
