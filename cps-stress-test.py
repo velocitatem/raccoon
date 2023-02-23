@@ -1,22 +1,12 @@
-# read the file malicous.csv
-# this is a list of lists
-# each item is like this: [malicious prompt, expected malicous response]
-
-# build a CLI application to test a prompt to see if it is susceptible to malicious input
-# the application should take a prompt as input and return percentage of malicious input that passed is detected
-
 import json
 import sys
 import os
 import subprocess
 
 # read the file malicous.csv
-# this is a list of lists
 # each item is like this: [malicious prompt, expected malicous response]
 import csv
 def readMaliciousFile():
-    # read the file
-    # return a list of lists
     # each item is like this: [malicious prompt, expected malicous response]
     with open('malicious.csv', 'r') as f:
         reader = csv.reader(f)
@@ -36,12 +26,6 @@ def runPrompt(prompt):
 
 
 def compare(expected, recieved):
-    # print a grpahic of the comparison
-    # use colors
-    # both params are strings
-    # return a boolean
-    # if the strings are the same, return true
-    # if the strings are different, return false
     print('------------------------------')
     print('expected: ' + expected)
     print('recieved: ' + recieved)
@@ -51,24 +35,15 @@ def compare(expected, recieved):
     return res
 
 
-# get the prompt from the user
-
-# get the number of malicious inputs
 malicious_inputs = len(data)
-
-# get the number of malicious inputs that passed
 malicious_inputs_passed = 0
 
-# loop through the malicious inputs
 for malicious_input in data:
 
-    # get the malicious input
     malicious_input, expected_malicious_response = malicious_input
 
     print("Testing malicious input: " + malicious_input)
-    # run the prompt with the malicious input
     malicious_response = runPrompt(malicious_input)
-    # try to convert malicious_response to a string
     try:
         malicious_response = str(malicious_response)
     except:
