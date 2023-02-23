@@ -1,3 +1,5 @@
+![logo](./logo.png)
+
 # Cross-Prompt Scripting
 
 Using LLMs for a project is great, but not if it ends up costing you a lot because a malicious prompt gets in. For example:
