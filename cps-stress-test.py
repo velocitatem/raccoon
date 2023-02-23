@@ -1,4 +1,4 @@
-# read the file malicous.json
+# read the file malicous.csv
 # this is a list of lists
 # each item is like this: [malicious prompt, expected malicous response]
 
@@ -10,15 +10,27 @@ import sys
 import os
 import subprocess
 
-# read the file
-with open('malicious.json') as f:
-    data = json.load(f)
+# read the file malicous.csv
+# this is a list of lists
+# each item is like this: [malicious prompt, expected malicous response]
+import csv
+def readMaliciousFile():
+    # read the file
+    # return a list of lists
+    # each item is like this: [malicious prompt, expected malicous response]
+    with open('malicious.csv', 'r') as f:
+        reader = csv.reader(f)
+        malicious = list(reader)
+    # ignore first row
+    malicious = malicious[1:]
+    return malicious
+data = readMaliciousFile()
 
 import requests
 def runPrompt(prompt):
     # send a get request to localhost:3042/new/person/:introduction
     # the introduction is the prompt
-    r = requests.get('http://localhost:3042/new/person/' + prompt)
+    r = requests.get('http://localhost:3042/capital/' + prompt)
     return r.json().get('response')
 
 
