@@ -1,5 +1,3 @@
-![logo](./logo.png)
-
 # Cross-Prompt Scripting
 
 _More coming soon..._
@@ -37,10 +35,10 @@ If we take a look at cross-site scripting, we can see that the problem is that t
 ### Prompt stress-test 🧪
 That is what this project proposes. We can stress-test the prompt by giving it a bunch of inputs and seeing if it breaks. If it does, we can fix it. If it doesn't, we can use it.
 
-| Upsides ✅                 | Downsides ❌          |
-|----------------------------|-----------------------|
-| Can be used with any model | Can be time-consuming |
-| Saves possible costs       | Not 100% accurate     |
+| Upsides ✅                 | Downsides ❌      |
+|----------------------------|-------------------|
+| Can be used with any model | In development    |
+| Saves possible costs       | Not 100% accurate |
 
 ### Other
 It is also important to understand how to design a good prompt, you can read more about that [here](https://github.com/dair-ai/Prompt-Engineering-Guide).
@@ -110,8 +108,6 @@ recieved:  N/A
 result: False
 Percentage of malicious inputs that passed: 0.5
 ```
-
-## Customization
 
 
 ## Contributing
