@@ -10,7 +10,6 @@ import csv
 
 def readMaliciousFile():
     # each item is like this: [malicious prompt, expected malicous response]
-    # import malicious.csv from the dir of this file
     path = os.path.dirname(os.path.realpath(__file__)) + '/malicious.csv'
     with open(path, 'r') as f:
         reader = csv.reader(f)
