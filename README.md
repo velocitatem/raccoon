@@ -109,6 +109,9 @@ result: False
 Percentage of malicious inputs that passed: 0.5
 ```
 
+## Other Resources
+- [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
+- [Google Forms LLM](https://github.com/velocitatem/FormsAI)
 
 ## Contributing
 Always looking for more prompts to test! If you have any prompts that you want to add, please make a pull request. Any other contributions are also welcome.
