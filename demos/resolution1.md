@@ -68,4 +68,6 @@ The output we get look like this:
 Percentage of malicious inputs that passed: 0.0
 ```
 
+Although this might be attributable to the fact that the prompts used to test this were not designed to attack QA models, non the less, this provides some insight into the robustness of the change.
+
 That, is a much nicer result. Test your prompts with the algorithm and see how they do. If you have any questions, feel free to reach out to me by [email](mailto:daniel@alves.world). It is important to note that this is still a very early version of the algorithm. It is not perfect and it is not guaranteed to work. It is just a tool to help you test your prompts. I hope you find it useful.
