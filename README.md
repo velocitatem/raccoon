@@ -1,10 +1,12 @@
 
+# Cross-Prompt Scripting
 
 https://user-images.githubusercontent.com/60182044/221370544-6208fd66-27fa-47d3-b118-253fe9409c12.mp4
 
+See how this was resolved: [here](./demos/resolution1.md)
 
 
-# Cross-Prompt Scripting
+---
 
 _More coming soon..._
 
