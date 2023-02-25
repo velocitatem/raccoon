@@ -33,3 +33,39 @@ Percentage of malicious inputs that passed: 0.8
 Here are some things we can do to improve the prompt:
 + More the `{issue}` to the beginning of the prompt so that the model can see it right away. Most of the bad prompts rely on "ignore the above".
 + Use a QA model instead of just a generator. In this case that replacement would be easily done with [suppress.js](https://suppressjs.readthedocs.io/en/latest/Models/alephalpha.html).
+
+
+Here is how we implement the second option:
+
+```js
+
+class QA {
+    constructor() {
+        this.ai = new AlephAlphaLLM({apiKey:config.alephKey,
+                            task:"qa",
+                            model:"luminous-extended"});
+        this.context = prompt;
+    }
+    async generate(question) {
+        console.log(question);
+        let ctx = {question:`How can Wikipedia help with: ${question.issue}`, context:this.context}
+        console.log(ctx);
+        let res = await this.ai.generate(ctx);
+        return res;
+    }
+}
+```
+
+We can now test the prompt with the algorithm:
+
+```bash
+python cps.py
+```
+
+The output we get look like this:
+
+```bash
+Percentage of malicious inputs that passed: 0.0
+```
+
+That, is a much nicer result. Test your prompts with the algorithm and see how they do. If you have any questions, feel free to reach out to me by [email](mailto:daniel@alves.world). It is important to note that this is still a very early version of the algorithm. It is not perfect and it is not guaranteed to work. It is just a tool to help you test your prompts. I hope you find it useful.
