@@ -1,3 +1,5 @@
+./demos/cps-exploits.mp4
+
 # Cross-Prompt Scripting
 
 _More coming soon..._

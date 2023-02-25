@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Help</title>
+    </head>
+    <body>
+        <h1>Help</h1>
+        <p> Welcome! Please enter your issue below and we will try to help you. </p>
+        <div class="inputs">
+
+            <input type="text" name="issue" id="issue">
+            <button onclick="sendIssue()">Send</button>
+        </div>
+        <div id="result"></div>
+    </body>
+</html>
+<script>
+    function sendIssue() {
+        var issue = document.getElementById("issue").value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("result").innerHTML = JSON.parse(this.response).response;
+            }
+        };
+        xhttp.open("GET", "/help?issue=" + issue, true);
+        xhttp.send();
+    }
+</script>
+<style>
+    body {
+        background-color: #f2f2f2;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+        margin: 10% 20%;
+    }
+    .inputs{
+        text-align: center;
+    }
+ input {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        transition: width 0.4s ease-in-out;
+        width: 60%;
+    }
+    input:focus {
+        width: 70%;
+    }
+ button {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 12px 20px;
+        transition: 0.3s;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #result {
+        text-align: center;
+        margin: 10% 20%;
+    }
+</style>
