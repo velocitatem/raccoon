@@ -1,4 +1,8 @@
-./demos/cps-exploits.mp4
+
+
+https://user-images.githubusercontent.com/60182044/221370544-6208fd66-27fa-47d3-b118-253fe9409c12.mp4
+
+
 
 # Cross-Prompt Scripting
 
