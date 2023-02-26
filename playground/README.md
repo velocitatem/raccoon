@@ -71,10 +71,12 @@ The agent will then run the command, and the reverse shell will be created. Now,
 Here is a video of the reverse shell being created:
 
 
-
 https://user-images.githubusercontent.com/60182044/221442461-f5ec055c-f4d1-41b5-a0c1-0ce0922b1e94.mp4
 
 
 # Summary (non-technical)
 
 The key takeaway from this is that a LLM agent which is given the power of using the shell and access to the internet, is a recipe for disaster. As is shown above, this setup can be used to create a reverse shell, which can then be used to do whatever the attacker wants with the victim machine. And if you had confidential information on the victim machine, this could be a huge problem.
+
+# More Thoughts
++ Say, a bad actor is able to redirect traffic on a network to their own server. If the source code relies on some external resources (which is fetched before the evaluation by the LLM), then the bad actor could perform a similar attack to the one above, and get the agent to run a script on the victim machine.
