@@ -1,11 +1,10 @@
 
 # Cross-Prompt Scripting
 
-https://user-images.githubusercontent.com/60182044/221370544-6208fd66-27fa-47d3-b118-253fe9409c12.mp4
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mLPIrcMmCl8?start=123" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-See how this was resolved: [here](./demos/resolution1.md)
 
-You can find more demos [here](./examples/README.md)
+You can some demos [here](./examples/README.md)
 
 
 ---
