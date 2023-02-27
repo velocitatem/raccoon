@@ -80,3 +80,4 @@ The key takeaway from this is that a LLM agent which is given the power of using
 
 # More Thoughts
 + Say, a bad actor is able to redirect traffic on a network to their own server. If the source code relies on some external resources (which is fetched before the evaluation by the LLM), then the bad actor could perform a similar attack to the one above, and get the agent to run a script on the victim machine.
+  + This could be applied with the `search` tool.
