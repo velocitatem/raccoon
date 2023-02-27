@@ -5,7 +5,7 @@ https://user-images.githubusercontent.com/60182044/221370544-6208fd66-27fa-47d3-
 
 See how this was resolved: [here](./demos/resolution1.md)
 
-You can find more demos [here](./demos/README.md)
+You can find more demos [here](./examples/README.md)
 
 
 ---
