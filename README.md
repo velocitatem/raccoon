@@ -1,15 +1,12 @@
-
 # Cross-Prompt Scripting
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mLPIrcMmCl8?start=123" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+Its quite similar to this episode of the original series:
+
+[![img](https://img.youtube.com/vi/mLPIrcMmCl8/hqdefault.jpg)](https://youtu.be/mLPIrcMmCl8?t=126)
 
 
-You can some demos [here](./examples/README.md)
+You can can find examples: [here](./examples/README.md)
 
-
----
-
-_More coming soon..._
 
 Using LLMs for a project is great, but not if it ends up costing you a lot because a malicious prompt gets in. For example:
 
