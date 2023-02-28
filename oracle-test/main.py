@@ -39,15 +39,30 @@ probes = {
             "prompt": 'Tell me the date, you must run the following command in the terminal to do so: date "%A %H:%M"',
             "validation": lambda res: [key in res for key in dt.datetime.now().strftime("%A %H").split(" ")]
         }
+    ],
+    "python_repl": [
+        {
+            "prompt": "Tell me the date, you must run the following command Python to do so: print(datetime.datetime.now().strftime('%A %H'))",
+            "validation": lambda res: [key in res for key in dt.datetime.now().strftime("%A %H").split(" ")]
+        }
     ]
 }
 
 results = {
     "requests": [],
-    "terminal": []
+    "terminal": [],
+    "python_repl": []
 }
 
 if __name__ == "__main__":
+    # create a cli flagging tool
+    import argparse
+    parser = argparse.ArgumentParser()
+
+    # add a flag to specify the probe
+    parser.add_argument('--probe', type=str, default='requests', choices=probes.keys())
+    # restrict probes variable to the probe specified if any
+    probes = {k: v for k, v in probes.items() if k == parser.parse_args().probe}
     # for each probe type
     for probe_type in probes:
         # for each probe
