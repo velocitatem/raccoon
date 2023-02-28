@@ -1,12 +1,10 @@
 # Cross-Prompt Scripting
 
-Its quite similar to this episode of the original series:
+Quick links:
++ [Examples](./examples/README.md)
++ [Splendidbing](./splendidbing.md)
 
-[![img](https://img.youtube.com/vi/mLPIrcMmCl8/hqdefault.jpg)](https://youtu.be/mLPIrcMmCl8?t=126)
-
-
-You can can find examples: [here](./examples/README.md)
-
+---
 
 Using LLMs for a project is great, but not if it ends up costing you a lot because a malicious prompt gets in. For example:
 
