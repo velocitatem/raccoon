@@ -60,7 +60,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     # add a flag to specify the probe
-    parser.add_argument('--probe', type=str, default='requests', choices=probes.keys())
+    parser.add_argument('--probe', type=str, default='requests', choices=probes.keys(), help='You can specify for which tool you want to probe the oracle')
     # restrict probes variable to the probe specified if any
     probes = {k: v for k, v in probes.items() if k == parser.parse_args().probe}
     # for each probe type
@@ -76,7 +76,18 @@ if __name__ == "__main__":
 
     print(results)
     # we now try to infer what tools the application uses
-    tools = ["requests", "terminal"]
-    for tool in tools:
-        if all([all(result[1]) for result in results[tool]]):
-            print(f"The application uses {tool}")
+    tools = ["requests", "terminal", "python_repl"]
+    # go through the results
+    for probe_type in results:
+        # if there are results in the probe type
+        if len(results[probe_type]) > 0:
+            # there might be multiple results
+            results_for_probe_type = [all(pres) for pres in results[probe_type]]
+            # if all results are true
+            if all(results_for_probe_type):
+                print("The application uses", probe_type)
+            # check if the proportion of true results is greater than 80%
+            elif sum(results_for_probe_type) / len(results_for_probe_type) > 0.8:
+                print("The application might use", probe_type)
+            else:
+                print("The application does not use", probe_type)
