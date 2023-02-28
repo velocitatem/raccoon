@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/velocitatem/llm-cps#readme",
   "dependencies": {
-    "ai.suppress.js": "^1.3.3"
+    "ai.suppress.js": "^1.3.3",
+    "express": "^4.18.2"
   }
 }
