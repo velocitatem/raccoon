@@ -2,8 +2,8 @@ import json
 import sys
 import os
 import subprocess
-from run import runPrompt
-
+def runPrompt(malicious_input):
+    pass
 # read the file malicous.csv
 # each item is like this: [malicious prompt, expected malicous response]
 import csv
@@ -67,8 +67,10 @@ def run(method=runPrompt):
 
 
         # check
-        if compare(expected_malicious_response, malicious_response):
+        passed =compare(expected_malicious_response, malicious_response)
+        if passed:
             malicious_inputs_passed += 1
+        yield (malicious_input, malicious_response, passed)
         i+=1
 
 
@@ -82,7 +84,6 @@ def run(method=runPrompt):
     print("Percentage of malicious inputs that passed: " + str(percentage_malicious_inputs_passed))
 
     # return the percentage of malicious inputs that passed
-    return percentage_malicious_inputs_passed
 
 if __name__ == '__main__':
     run()
