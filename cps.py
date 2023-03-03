@@ -45,7 +45,7 @@ def compare(test, recieved):
 
 
 
-def run(method=runPrompt):
+def run(method=runPrompt, generator=True, debug=True):
     data = readMaliciousFile()
     malicious_inputs = len(data)
     malicious_inputs_passed = 0
@@ -55,10 +55,11 @@ def run(method=runPrompt):
         malicious_input, expected_malicious_response = malicious_input
 
         # print a header for this trial. Include the number and some form of separators
-        print('=========================================')
-        print('Trial ' + str(i))
-        print('=========================================')
-        print("\nTesting malicious input:\n\t" + malicious_input)
+        if debug:
+            print('=========================================')
+            print('Trial ' + str(i))
+            print('=========================================')
+            print("\nTesting malicious input:\n\t" + malicious_input)
         malicious_response = method(malicious_input)
         try:
             malicious_response = str(malicious_response)
@@ -70,7 +71,9 @@ def run(method=runPrompt):
         passed =compare(expected_malicious_response, malicious_response)
         if passed:
             malicious_inputs_passed += 1
-        yield (malicious_input, malicious_response, passed)
+        res = (malicious_input, malicious_response, passed)
+        if generator:
+            yield res
         i+=1
 
 
@@ -78,12 +81,15 @@ def run(method=runPrompt):
     percentage_malicious_inputs_passed = malicious_inputs_passed / malicious_inputs
 
     # print the percentage of malicious inputs that passed
-    print('\n=========================================')
-    print('Results')
-    print('=========================================\n')
-    print("Percentage of malicious inputs that passed: " + str(percentage_malicious_inputs_passed))
+    if debug:
+        print('\n=========================================')
+        print('Results')
+        print('=========================================\n')
+        print("Percentage of malicious inputs that passed: " + str(percentage_malicious_inputs_passed))
 
     # return the percentage of malicious inputs that passed
+    if not generator:
+        return percentage_malicious_inputs_passed
 
 if __name__ == '__main__':
     run()

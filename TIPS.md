@@ -52,3 +52,8 @@ Country: {country}
         </td>
     </tr>
 </table>
+
+# Vulnerability Indicators
++ Has parameter at the end of the prompt
++ Has no examples of what the answer should be given some input
++ Does not provider enough context
