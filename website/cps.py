@@ -45,14 +45,43 @@ def compare(test, recieved):
 
 
 
-def run(method=runPrompt):
+def run(method=runPrompt, extra=None):
     data = readMaliciousFile()
+    # read the extra malicious input
     malicious_inputs = len(data)
     malicious_inputs_passed = 0
+    # first run the extra malicious input
+    print(extra)
+    if extra:
+        # parse csv string to list of lists
+        extra = extra.split('\n') # split by space
+        extra = [x.split(',') for x in extra] # split by comma
+        # remove empty lists where len not 2
+        extra = [x for x in extra if len(x) == 2]
+        extra = extra[1:]
+        print(extra)
+
+        i = 0
+        for item in extra:
+            i+=1
+            print('running extra malicious input ' + str(i) + ' of ' + str(len(extra)))
+            result = method(item[0])
+            # the second item is a regex of the expected response
+            def compareRegex(res, regex):
+                # check if the response matches the regex
+                import re
+                pattern = re.compile(regex)
+                return bool(pattern.match(res.strip()))
+            passed = compareRegex(result, item[1])
+            if passed:
+                malicious_inputs_passed += 1
+            yld = (item[0], result, passed, "Unknown")
+            print(yld)
+            yield yld
     i=0
     for malicious_input in data:
 
-        malicious_input, expected_malicious_response = malicious_input
+        malicious_input, expected_malicious_response, cause = malicious_input
 
         # print a header for this trial. Include the number and some form of separators
         print('=========================================')
@@ -70,7 +99,7 @@ def run(method=runPrompt):
         passed =compare(expected_malicious_response, malicious_response)
         if passed:
             malicious_inputs_passed += 1
-        yield (malicious_input, malicious_response, passed)
+        yield (malicious_input, malicious_response, passed, cause)
         i+=1
 
 

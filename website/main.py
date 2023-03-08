@@ -28,7 +28,23 @@ prompt = st.text_input("Enter your prompt here")
 # model options: text-davinci-003
 # let user select model
 model = st.selectbox("Select model", ["text-davinci-003"])
-api_key = st.text_input("Enter your API key here")
+st.markdown("""
+## Install Omni
+Omni is a browser plugin that makes it easy to use AI APIs, install it now to use this app.
+[Install Omni](LINK_TO_EXT)
+""")
+api_key=st.text_input("OpenAI API Key", placeholder="omni-openai")
+
+# optional input for the user to upload a file with a list of malicious injections and their expected output
+# this file can be anything
+custom_injections = st.file_uploader("Upload a file with a list of malicious injections and their expected output")
+st.write("format of the file: [injection],[expected output]")
+st.write("The expected value can be a regex. For example, if you expect the output to be a number, you can use the regex `\\d+`")
+
+if custom_injections is not None:
+    # read the file
+    custom_injections = custom_injections.read().decode("utf-8")
+    # parse csv file
 
 
 import openai
@@ -49,7 +65,8 @@ def runMethod(prompt):
 # button to test prompt
 if st.button("Test Prompt"):
     # run test
-    res = cps.run(method=runMethod)
+    print(custom_injections)
+    res = cps.run(method=runMethod, extra=custom_injections)
     resList = []
     # ex: yield (malicious_input, malicious_response, passed)
     for r in res:
