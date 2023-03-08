@@ -48,11 +48,11 @@ if custom_injections is not None:
 
 
 import openai
-def runMethod(prompt):
+def runMethod(evil):
     openai.api_key = api_key
     response = openai.Completion.create(
         engine=model,
-        prompt=prompt,
+        prompt=prompt.replace("[MASK]", evil),
         max_tokens=100,
         temperature=0.7,
         top_p=1,
@@ -71,7 +71,7 @@ if st.button("Test Prompt"):
     # ex: yield (malicious_input, malicious_response, passed)
     for r in res:
         # if passed, show a cross emoji and the text failed in a header
-        st.markdown("### " + "Failed :x:" if r[2] else "Passed :white_check_mark:")
+        st.markdown("### " + "Failed :x:" if r[2] else "### Passed :white_check_mark:")
         # Present the results to the user in a nice way.
         st.write("Malicious input: " + r[0])
         st.write("Malicious response: " + r[1])
