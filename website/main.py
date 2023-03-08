@@ -1,5 +1,7 @@
 import streamlit as st
 import cps as cps
+import openai
+import re
 # this is a website where a user can test their GPT3 prompt for vulnerability.
 # They need to enter their prompt and the model they want to test it on.
 # Then they need to enter the api key.
@@ -24,6 +26,7 @@ st.sidebar.info("Share this website with your friends!")
 
 # tell the user that the prompt must have some sort of parameter. They should replace that parameter with [MASK].
 st.write("Your prompt must have some sort of parameter. You should replace that parameter with [MASK].")
+prompt = ""
 prompt = st.text_input("Enter your prompt here")
 # model options: text-davinci-003
 # let user select model
@@ -46,10 +49,16 @@ if custom_injections is not None:
     custom_injections = custom_injections.read().decode("utf-8")
     # parse csv file
 
+if prompt and "[MASK]" not in str(prompt):
+    params = re.findall(r"\{(\w+)\}", prompt)
+    if len(params) == 0:
+        st.error("Your prompt does not have a parameter. Please add a parameter to your prompt.")
 
-import openai
+    prompt = prompt.replace("{" + params[0] + "}", "[MASK]")
 def runMethod(evil):
+    global prompt
     openai.api_key = api_key
+
     response = openai.Completion.create(
         engine=model,
         prompt=prompt.replace("[MASK]", evil),
