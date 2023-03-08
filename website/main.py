@@ -25,7 +25,7 @@ st.sidebar.info("Share this website with your friends!")
 
 
 # tell the user that the prompt must have some sort of parameter. They should replace that parameter with [MASK].
-st.write("Your prompt must have some sort of parameter. You should replace that parameter with [MASK].")
+st.write("Your prompt must have some sort of parameter. You can target a specific parameter by replacing it with [MASK].")
 prompt = ""
 prompt = st.text_input("Enter your prompt here")
 # model options: text-davinci-003
