@@ -22,6 +22,7 @@ st.sidebar.info("[Github Repository](https://github.com/velocitatem/llm-cross-pr
 # call to action to share the website
 st.sidebar.info("Share this website with your friends!")
 
+import streamlit.components.v1 as components
 
 
 # tell the user that the prompt must have some sort of parameter. They should replace that parameter with [MASK].
@@ -33,10 +34,10 @@ prompt = st.text_input("Enter your prompt here")
 model = st.selectbox("Select model", ["text-davinci-003"])
 st.markdown("""
 ## Install Omni
-Omni is a browser plugin that makes it easy to use AI APIs, install it now to use this app.
+Omni is a browser plugin that makes it easy to use AI APIs, install it now to use this app. Get your key from the popup.
 [Install Omni](LINK_TO_EXT)
 """)
-api_key=st.text_input("OpenAI API Key", placeholder="omni-openai")
+api_key=st.text_input("OpenAI API Key", placeholder="")
 
 # optional input for the user to upload a file with a list of malicious injections and their expected output
 # this file can be anything
