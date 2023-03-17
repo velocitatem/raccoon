@@ -29,7 +29,7 @@ Other ways to create good prompts include understanding prompt design principles
 
 ## How does it work?
 
-To use the Prompt Stress-Test, simply follow these steps:
+To use the Prompt Stress-Test, you can use our [web app](https://llm-cps.streamlit.app/) or simply follow these steps:
 
 1. Configure `run.py` with your evaluation method.
 2. Run `cps.py`.
