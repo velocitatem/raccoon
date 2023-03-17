@@ -39,7 +39,8 @@ It's that simple!
 
 ## Demonstration
 
-Don't believe us? Try out our demo! After cloning this repository, navigate into the root directory, run `npm i`, and create a configuration file called `config.json` with your OpenAI API key inside like so:
+Don't believe us? Try out our demo! The link should be by the Github description.
+OR: After cloning this repository, navigate into the root directory, run `npm i`, and create a configuration file called `config.json` with your OpenAI API key inside like so:
 
 ```json
 {
