@@ -1,5 +1,6 @@
-![chart](./chart.png)
-# Cross-Prompt Scripting
+![gif](./giphy.gif)
+
+# Raccoon
 
 Quick links:
 + [Examples](./examples/README.md)
