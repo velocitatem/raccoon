@@ -1,6 +1,9 @@
-![gif](./giphy.gif)
-
-# Raccoon
+<table style="border-collapse: collapse; border: none; margin: auto;">
+  <tr>
+    <td style="border: none;"><img src="./giphy.gif" alt="gif"></td>
+    <td style="border: none; vertical-align: middle;"><h1>Raccoon</h1></td>
+  </tr>
+</table>
 
 Quick links:
 + [Examples](./examples/README.md)
